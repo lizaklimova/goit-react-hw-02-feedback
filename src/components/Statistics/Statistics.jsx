@@ -1,28 +1,30 @@
 import { Component } from 'react';
+import { StatList, TotalFeed, PositiveFeed } from './Statistics.styled';
 export default class Statistics extends Component {
   render() {
     const { good, neutral, bad, total, positivePercentage } = this.props;
+
     return (
-      <ul>
+      <StatList>
         <li>
-          <p>Good:{good}</p>
+          <p>👍🏻 Good: {good}</p>
         </li>
         <li>
-          <p>Neutral: {neutral}</p>
+          <p>👉🏻 Neutral: {neutral}</p>
         </li>
         <li>
-          <p>Bad: {bad}</p>
+          <p>👎🏻 Bad: {bad}</p>
         </li>
         <li>
-          <p>Total:{total(good, neutral, bad)} </p>
+          <TotalFeed>Total: {total(good, neutral, bad)} </TotalFeed>
         </li>
         <li>
-          <p>
-            Positive feedbacks:
+          <PositiveFeed>
+            Positive feedbacks: &nbsp;
             {positivePercentage(good, neutral, bad)}
-          </p>
+          </PositiveFeed>
         </li>
-      </ul>
+      </StatList>
     );
   }
 }

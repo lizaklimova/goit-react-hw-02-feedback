@@ -35,11 +35,13 @@ export default class App extends Component {
 
     return (
       <>
-        <Section title="Please leave your feedback"></Section>
-        <FeedbackOptions
-          options={Object.keys(this.state)}
-          onLeaveFeedback={this.addFeedback}
-        />
+        <Section title="Please leave your feedback">
+          <FeedbackOptions
+            options={Object.keys(this.state)}
+            onLeaveFeedback={this.addFeedback}
+            smiles={['😁', '😐', '😒']}
+          />
+        </Section>
         <Section title="Statistics">
           {!this.countTotalFeedback(good, neutral, bad) ? (
             <NotificationMessage message=" There is no feedback! 🤷🏻‍♀️" />
